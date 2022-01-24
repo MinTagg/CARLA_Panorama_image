@@ -12,3 +12,19 @@ Panorama resolution   ::  (3336,760)
 ###
 'position.csv' file has the pixel position for cutting the image
 If you want to change the resolution and 'f value'' in 'subscriber.py', you should reestimate the position and f value
+
+
+Sample Image(4 images)
+
+![1](https://user-images.githubusercontent.com/98318559/150777125-a3a5db6d-6c09-423d-817c-0248717911b4.png)
+
+
+Panorama Image
+
+![Pano](https://user-images.githubusercontent.com/98318559/150776300-fc609d7c-b0a1-4114-8df5-7e40aea06174.jpg)
+
+
+Output Image
+
+![Pano_cut](https://user-images.githubusercontent.com/98318559/150776333-c954b199-1c96-4059-97ab-39ede71e5cab.jpg)
+
