@@ -10,7 +10,7 @@ Panorama resolution :: (3336,760)
 
 ###
 
-'util/point.json' file has ouxek oisutuib fir cutting image.
+'util/point.json' file has pixel position for cutting image.
 If you want to change the resolution and 'f value'' in 'subscriber.py', you should reestimate the position and f value
 
 Sample Image(4 images)
