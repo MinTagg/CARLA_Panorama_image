@@ -3,8 +3,8 @@
 This file make 4 RGB image to 1 Panorama image
 
 Car model :: Tesla model 3
-Camera resolution :: (1024,1024)
-Camera FOV :: 90'
+
+Camera resolution :: 1024,1024
 
 Panorama resolution :: (3336,760)
 
