@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-
 import glob
 import os
 import sys
@@ -42,13 +41,6 @@ class converter:
         # setting image size
         self.IM_WIDTH = 1024
         self.IM_HEIGHT = 1024
-
-        # 4 sensors image will be saved here
-        #self.img1 = None
-        #self.img2 = None
-        #self.img3 = None
-        #self.img4 = None
-
         # image list
         self.imgs = []
         actor_list = []
@@ -72,13 +64,8 @@ class converter:
             spawn_point = random.choice(world.get_map().get_spawn_points())
 
             self.vehicle = world.spawn_actor(bp, spawn_point)
-            #self.vehicle.apply_control(carla.self.VehicleControl(throttle=1.0, steer=0.0))
-            #self.vehicle.set_autopilot(True)  # if you just wanted some NPCs to drive.
 
             actor_list.append(self.vehicle)
-
-            # https://carla.readthedocs.io/en/latest/cameras_and_sensors
-            # get the blueprint for this sensor
             blueprint = blueprint_library.find('sensor.camera.rgb')
             # change the dimensions of the image
             blueprint.set_attribute('image_size_x', f'{self.IM_WIDTH}')
@@ -106,12 +93,7 @@ class converter:
             actor_list.append(sensor1)
             actor_list.append(sensor2)
             actor_list.append(sensor3)
-            # do something with this sensor
 
-            
-
-
-            # sensor image will be saved be def save_image
             sensor.listen(lambda data: self.process_img(data,self.pub1))
             sensor1.listen(lambda data: self.process_img(data,self.pub2))
             sensor2.listen(lambda data: self.process_img(data,self.pub3))
@@ -120,7 +102,6 @@ class converter:
             while True:
                 world.tick()
                 
-
         finally:
             settings.synchronous_mode = False
             world.apply_settings(settings)
