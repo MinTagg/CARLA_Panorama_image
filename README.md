@@ -32,3 +32,52 @@ carla: URL "https://carla.readthedocs.io/en/latest/start_quickstart/"
 ros(Melodic): URL "http://wiki.ros.org/melodic/Installation/Ubuntu"
 
 Checked at Ubuntu 18.04 + ros Melodic
+
+### How to run
+
+# 풀이
+
+```python
+n = int(input())
+data = list(map(int, input().split()))
+data.sort()
+
+result = 0
+count = 0
+
+for i in data:
+    # 임시그룹에 사람의 수 추가
+    count += 1
+    if count >= i:
+        # 사람의 수와 제일 마지막에 추가된 사람의 수  비교
+        result += 1
+        count = 0
+        # 완성그룹(result)에 1 추가, 임시그룹의 인원 제거
+print(result)
+```
+
+- 나는 사람을 직접 temp 리스트에 추가하면서 체크했는데, 풀이에서는 count에 인원을 더하면서 체크했다
+- 메모리와 속도에서 더 빠를듯(리스트 없음, len() 안구해도 됨)
+
+```shell
+python ros_publisher.py
+```
+
+open another window
+
+```shell
+python ros_subscriber.py
+```
+
+Default settings of subscriber is publishing mode that publish Panorama image.
+You can choose to turn on Publish mode or Save mode
+
+If you turn on the Save mode
+
+```shell
+python ros_subscriber.py --publish False --save True
+```
+
+At first, it will make a directory that named with 'YYYYMMDD_HHMMSS'
+
+After that, the panorama image will be saved.
