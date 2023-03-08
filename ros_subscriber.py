@@ -75,13 +75,17 @@ class img2imgs:
     def point_loader(self):
         with open('util/point.json', 'r') as f:
             return json.load(f)['Point']
-def parser():
-    ARGS = argparse.ArgumentParser()
-    ARGS.add_argument('-publish', type = bool, help = 'Publish the panorama Image', default=True)
-    ARGS.add_argument('-save', type = bool, help = 'Save the Panorama Image', default=False)
-    return ARGS.parse_args()
+def ARG():
+    parser = argparse.ArgumentParser()
+
+    # 입력받을 인자값 등록
+    parser.add_argument('--publish',  help='Publish the panorama Image', default=True)
+    parser.add_argument('--save', default=False, help='Save Panorama Image')
+    # 입력받은 인자값을 args에 저장 (type: namespace)
+    args = parser.parse_args()
+    return args
 if __name__ == '__main__':
-    arg = parser()
+    arg = ARG()
     try:
         asd = img2imgs(publishing_mode= arg.publish, saving_mode=arg.save)
     except os.error:
